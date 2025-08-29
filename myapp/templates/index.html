@@ -1,7 +1,189 @@
 {% extends 'base.html' %}
 
-    {% block body %}    
-    
-    <h1>Hello World?</h1>
+{% block body %}
 
-    {% endblock %}
+<!--Start Main Slider Four-->
+<section class="main-slider-four">
+    <div class="main-slider-four__carousel owl-carousel owl-theme">
+
+
+        <!--Start Main Slider Four Single-->
+        {% for i in mainslider %}
+        <div class="main-slider-four__single">
+            {% csrf_token %}
+            <div class="main-slider-four__bg" style="background-image: url(assets/images/slider/slider-v4-img1.jpg);">
+            </div>
+            <div class="shape1 float-bob-x"><img src="{{ i.background_image.urls }}" alt="">
+            </div>
+            <div class="container">
+                <div class="main-slider-four__content">
+                    <div class="tagline">
+                        <span>{{ i.tagline|safe }}</span>
+                    </div>
+                    <div class="title-box">
+                        <h2>{{ i.title|safe }}</h2>
+                    </div>
+                    <div class="text-box">
+                        <p>{{ i.thm_text|safe }}</p>
+                    </div>
+
+                    <div class="main-slider-four__btn">
+                        <a class="thm-btn" href="{{ i.thm_btn|safe }}">{{ i.thm_text|safe }}
+                            <i class="icon-next"></i>
+                            <span class="hover-btn hover-bx"></span>
+                            <span class="hover-btn hover-bx2"></span>
+                            <span class="hover-btn hover-bx3"></span>
+                            <span class="hover-btn hover-bx4"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!--End Main Slider Four Single-->
+    </div>
+
+    <div class="main-slider__form">
+        <div class="main-slider__form-bg" style="background-image: url(assets/images/pattern/main-slider-form-bg.png);">
+        </div>
+
+        <div class="title-box">
+            <h2>Request A Free Estimate</h2>
+        </div>
+        <form method="post" action="https://unicktheme.com/2025/cleanin/main-html/index.html">
+            <div class="form-group">
+                <input type="text" name="username" placeholder="Your Name" required="">
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Email Address" value="" name="form_email" required="">
+            </div>
+            <div class="form-group">
+                <div class="select-box">
+                    <select class="selectmenu wide">
+                        <option selected="selected">Choose Services</option>
+                        <option>House Cleaning</option>
+                        <option>Office Cleaning</option>
+                        <option>Kitchen Cleaning</option>
+                        <option>Window Cleaning</option>
+                        <option>Car Cleaning</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <textarea name="message" placeholder="Message"></textarea>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="button-box">
+                        <button class="thm-btn" type="submit" data-loading-text="Please wait...">
+                            Submit Reaquest Now
+                            <span class="hover-btn hover-bx"></span>
+                            <span class="hover-btn hover-bx2"></span>
+                            <span class="hover-btn hover-bx3"></span>
+                            <span class="hover-btn hover-bx4"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<!--End Main Slider Four-->
+
+<!--Start About Five-->
+<section class="about-five">
+    <div class="shape1 float-bob-x"><img src="{{ i.image1.url }}" alt=""></div>
+    <div class="container">
+        <div class="row">
+            {% for i in about_five %}
+            <!--Start About Five Img-->
+            <div class="col-xl-6 wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                <div class="about-five__img clearfix">
+                    <div class="about-five__img1">
+                        <div class="about-five__img1-inner">
+                            <img src="{{ i.image2.url }}" alt="" />
+                        </div>
+                        <div class="experince-box">
+                            <h2>{{ i.experience|safe }}</h2>
+                        </div>
+                    </div>
+                    <div class="about-five__img2">
+                        <img src="{{ i.shape_image.url }}" alt="">
+                    </div>
+                </div>
+            </div>
+            <!--End About Five Img-->
+
+            <!--Start About Five Content-->
+            <div class="col-xl-6 wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                <div class="about-five__content">
+                    <div class="sec-title sec-title-animation animation-style2">
+                        <div class="sec-title__tagline">
+                            <div class="icon-box">
+                                <span class="icon-household"></span>
+                            </div>
+
+                            <div class="text title-animation">
+                                <h4>{{ i.tagline|safe }}</h4>
+                            </div>
+                        </div>
+                        <h2 class="sec-title__title title-animation">{{ i.title|safe }}
+                        </h2>
+                    </div>
+
+                    <div class="about-five__content-text1">
+                        <p>{{ i.description|safe }}</p>
+                    </div>
+
+                    <div class="about-five__content-text2">
+                        <div class="row">
+                            {% for i in about_service %}
+                            <div class="col-xl-6 col-lg-6 col-md-6">
+                                <div class="about-five__content-text2-single">
+                                    <div class="about-five__content-text2-single-top">
+                                        <div class="icon-box">
+                                            <span class="icon-window-cleaner"></span>
+                                        </div>
+                                        <div class="text-box">
+                                            <h2>{{ i.sec_title|safe }}</h2>
+                                        </div>
+                                    </div>
+
+                                    <ul class="about-five__content-text2-single-list">
+                                        <li>
+                                            <p><span class="icon-checkmark"></span> We are Committed</p>
+                                        </li>
+                                        <li>
+                                            <p><span class="icon-checkmark"></span> Highly Rated Cleaning</p>
+                                        </li>
+                                        <li>
+                                            <p><span class="icon-checkmark"></span> Quality cleaning system</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="about-five__content-bottom">
+                        <div class="btn-box">
+                            <a class="thm-btn" href="{{ i.thm_btn }}">{{ i.thm_text|safe }}
+                                <i class="icon-next"></i>
+                                <span class="hover-btn hover-bx"></span>
+                                <span class="hover-btn hover-bx2"></span>
+                                <span class="hover-btn hover-bx3"></span>
+                                <span class="hover-btn hover-bx4"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!--End About Five Content-->
+        </div>
+    </div>
+</section>
+<!--End About Five-->
+
+{% endblock %}
