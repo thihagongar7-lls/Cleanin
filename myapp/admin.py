@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(MainSliderModel)
 admin.site.register(AboutFiveModel)
 admin.site.register(AboutServiceModel)
+admin.site.register(ServicesModel)

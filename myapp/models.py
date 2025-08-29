@@ -36,4 +36,13 @@ class AboutServiceModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+class ServicesModel(models.Model):
+    id = models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
+    tagline = RichTextField()
+    title = RichTextField()
+    image = models.ImageField(upload_to='services/')
+    sec_title = RichTextField()
+    description = RichTextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
